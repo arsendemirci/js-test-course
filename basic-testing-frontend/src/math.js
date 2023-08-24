@@ -1,3 +1,4 @@
+import { cleanNumbers } from "./src/util/numbers.js";
 export function add(numbers) {
   if (!numbers) throw "numbers is not defined";
   if (numbers === NaN) return NaN;
@@ -10,4 +11,14 @@ export function add(numbers) {
     sum += +number;
   }
   return sum;
+}
+
+export function calculateResults(numberInputs) {
+  try {
+    const numbers = cleanNumbers(numberInputs);
+    result = add(numbers).toString();
+  } catch (error) {
+    result = error.message;
+  }
+  return result;
 }
